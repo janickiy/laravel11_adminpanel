@@ -14,7 +14,7 @@ class DataTableController extends Controller
     /**
      * @return JsonResponse
      */
-    public function getCategory(): JsonResponse
+    public function category(): JsonResponse
     {
         $row = Category::query();
 
@@ -31,16 +31,16 @@ class DataTableController extends Controller
     /**
      * @return JsonResponse
      */
-    public function getUsers(): JsonResponse
+    public function users(): JsonResponse
     {
         $row = User::query();
 
         return Datatables::of($row)
             ->addColumn('action', function ($row) {
-                $editBtn = '<a title="' . trans('frontend.str.edit') . '" class="btn btn-xs btn-primary"  href="' . URL::route('admin.users.edit', ['id' => $row->id]) . '"><span  class="fa fa-edit"></span></a> &nbsp;';
+                $editBtn = '<a title="редактировать" class="btn btn-xs btn-primary"  href="' . URL::route('admin.users.edit', ['id' => $row->id]) . '"><span  class="fa fa-edit"></span></a> &nbsp;';
 
-                if ($row->id != Auth::id())
-                    $deleteBtn = '<a title="' . trans('frontend.str.remove') . '" class="btn btn-xs btn-danger deleteRow" id="' . $row->id . '"><span class="fa fa-remove"></span></a>';
+                if ($row->id !== Auth::id())
+                    $deleteBtn = '<a title="удалить" class="btn btn-xs btn-danger deleteRow" id="' . $row->id . '"><span class="fa fa-remove"></span></a>';
                 else
                     $deleteBtn = '';
 

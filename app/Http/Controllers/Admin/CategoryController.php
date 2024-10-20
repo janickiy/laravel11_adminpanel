@@ -3,8 +3,8 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Models\Category;
-use App\Http\Requests\Admin\Category\StoreRequest;
-use App\Http\Requests\Admin\Category\EditRequest;
+use App\Http\Requests\Category\StoreRequest;
+use App\Http\Requests\Category\EditRequest;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
 use Illuminate\Http\RedirectResponse;
@@ -16,7 +16,7 @@ class CategoryController extends Controller
      */
     public function index(): View
     {
-        return view('admin.category.index')->with('title', 'Категория подписчиков');
+        return view('category.index')->with('title', 'Категория подписчиков');
     }
 
     /**
@@ -24,7 +24,7 @@ class CategoryController extends Controller
      */
     public function create(): View
     {
-        return view('admin.category.create_edit')->with('title', 'Добавление категории');
+        return view('category.create_edit')->with('title', 'Добавление категории');
     }
 
     /**
@@ -35,7 +35,7 @@ class CategoryController extends Controller
     {
         Category::create($request->all());
 
-        return redirect()->route('admin.category.index')->with('success', 'Информация успешно добавлена');
+        return redirect()->route('category.index')->with('success', 'Информация успешно добавлена');
     }
 
     /**
@@ -48,7 +48,7 @@ class CategoryController extends Controller
 
         if (!$row) abort(404);
 
-        return view('admin.category.create_edit', compact('row'))->with('title', 'Редактирование категории');
+        return view('category.create_edit', compact('row'))->with('title', 'Редактирование категории');
     }
 
     /**
@@ -65,7 +65,7 @@ class CategoryController extends Controller
 
         $row->save();
 
-        return redirect()->route('admin.category.index')->with('success', 'Данные обновлены');
+        return redirect()->route('category.index')->with('success', 'Данные обновлены');
     }
 
     /**

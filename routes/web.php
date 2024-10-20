@@ -39,12 +39,12 @@ Route::group(['prefix' => 'users'], function () {
     Route::get('', [UsersController::class, 'index'])->name('admin.users.index');
     Route::get('create', [UsersController::class, 'create'])->name('admin.users.create');
     Route::post('store', [UsersController::class, 'store'])->name('admin.users.store');
-    Route::get('edit/{id}', [UsersController::class, 'edit'])->name('admin.users.edit');
+    Route::get('edit/{id}', [UsersController::class, 'edit'])->name('admin.users.edit')->where('id', '[0-9]+');
     Route::put('update', [UsersController::class, 'update'])->name('admin.users.update');
     Route::delete('destroy', [UsersController::class, 'destroy'])->name('admin.users.destroy')->where('id', '[0-9]+');
 });
 
 Route::group(['prefix' => 'datatable'], function () {
-    Route::any('notes', [DataTableController::class, 'notes'])->name('admin.datatable.notes');
-    Route::any('admin', [DataTableController::class, 'admin'])->name('admin.datatable.admin');
+    Route::any('category', [DataTableController::class, 'category'])->name('admin.datatable.category');
+    Route::any('users', [DataTableController::class, 'users'])->name('admin.datatable.users');
 });

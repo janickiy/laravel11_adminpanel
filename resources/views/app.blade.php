@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>{{ trans('frontend.str.admin_panel') }} | @yield('title')</title>
+    <title>Админ панель }} | @yield('title')</title>
 
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
@@ -97,7 +97,7 @@
             <!-- Sidebar user (optional) -->
             <div class="user-panel mt-3 pb-3 mb-3 d-flex">
                 <div class="info">
-                    <a href="{{ route('admin.admins.edit', ['id' => Auth::user()->id ]) }}"
+                    <a href="{{ route('admin.users.edit', ['id' => Auth::user()->id ]) }}"
                        class="d-block">{{ Auth::user()->login }} @if(!empty(Auth::user()->name))
                             ({{ Auth::user()->name }})
                         @endif</a>
@@ -122,10 +122,10 @@
                     @if(PermissionsHelper::has_permission('admin|moderator'))
 
                         <li class="nav-item">
-                            <a href="{{ route('admin.notes.index') }}" class="nav-link{{ Request::is('notes*') ? ' active' : '' }}"
-                               title="заметки">
+                            <a href="{{ route('admin.category.index') }}" class="nav-link{{ Request::is('category*') ? ' active' : '' }}"
+                               title="категории">
                                 <i class="nav-icon fas fa-list"></i>
-                                <p>заметки</p>
+                                <p>категории</p>
                             </a>
                         </li>
 
@@ -134,7 +134,7 @@
                     @if(PermissionsHelper::has_permission('admin'))
 
                         <li class="nav-item">
-                            <a href="{{ route('admin.admins.index') }}" class="nav-link{{ Request::is('admins*') ? ' active' : '' }}"
+                            <a href="{{ route('admin.users.index') }}" class="nav-link{{ Request::is('users*') ? ' active' : '' }}"
                                title="пользователи">
                                 <i class="nav-icon fas fa-users"></i>
                                 <p>пользователи</p>

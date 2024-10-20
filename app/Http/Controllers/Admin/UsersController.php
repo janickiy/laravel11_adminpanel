@@ -7,8 +7,8 @@ use Illuminate\Http\RedirectResponse;
 use Illuminate\View\View;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
-use App\Http\Requests\Admin\Users\StoreRequest;
-use App\Http\Requests\Admin\Users\EditRequest;
+use App\Http\Requests\Users\StoreRequest;
+use App\Http\Requests\Users\EditRequest;
 use Hash;
 
 class UsersController extends Controller
@@ -18,7 +18,7 @@ class UsersController extends Controller
      */
     public function index(): View
     {
-        return view('admin.users.index')->with('title', 'Пользователи');
+        return view('users.index')->with('title', 'Пользователи');
     }
 
     /**
@@ -32,7 +32,7 @@ class UsersController extends Controller
             'editor' => 'Редактор',
         ];
 
-        return view('admin.users.create_edit', compact('options'))->with('title', 'Добавить пользователя');
+        return view('users.create_edit', compact('options'))->with('title', 'Добавить пользователя');
     }
 
     /**
@@ -62,7 +62,7 @@ class UsersController extends Controller
             'editor' => 'Редактор',
         ];
 
-        return view('admin.users.create_edit', compact('user', 'options'))->with('title', 'Редактировать пользователя');
+        return view('users.create_edit', compact('user', 'options'))->with('title', 'Редактировать пользователя');
     }
 
     /**
@@ -95,6 +95,6 @@ class UsersController extends Controller
      */
     public function destroy(Request $request): void
     {
-        if ($request->id != Auth::id()) User::find($request->id)->delete();
+        if ($request->id !== Auth::id()) User::find($request->id)->delete();
     }
 }
