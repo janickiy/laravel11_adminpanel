@@ -20,7 +20,7 @@ class AuthController extends Controller
      */
     public function showLoginForm(): View
     {
-        return view('admin.login')->with('title', 'Авторизация');
+        return view('login')->with('title', 'Авторизация');
     }
 
     /**
@@ -51,7 +51,7 @@ class AuthController extends Controller
      */
     protected function authenticated($request, $user): RedirectResponse
     {
-        return redirect()->route('admin.templates.index');
+        return redirect()->route('dashboard.index');
     }
 
     /**
