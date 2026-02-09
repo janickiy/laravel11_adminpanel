@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
+use  App\Http\Requests\Admin\Auth\LoginRequest;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Contracts\View\View;
@@ -20,21 +20,15 @@ class AuthController extends Controller
      */
     public function showLoginForm(): View
     {
-        return view('login')->with('title', 'Авторизация');
+        return view('admin.login')->with('title', 'Авторизация');
     }
 
     /**
-     * @param Request $request
+     * @param LoginRequest $request
      * @return RedirectResponse
      */
-    public function login(Request $request): RedirectResponse
+    public function login(LoginRequest $request): RedirectResponse
     {
-        // Validate the form data
-        $this->validate($request, [
-            'login'   => 'required',
-            'password' => 'required|min:6'
-        ]);
-
         // Attempt to log the user in
         if (Auth::guard('web')->attempt(['login' => $request->login, 'password' => $request->password], $request->remember)) {
             // if successful, then redirect to their intended location
@@ -45,11 +39,9 @@ class AuthController extends Controller
     }
 
     /**
-     * @param $request
-     * @param $user
      * @return RedirectResponse
      */
-    protected function authenticated($request, $user): RedirectResponse
+    protected function authenticated(): RedirectResponse
     {
         return redirect()->route('admin.dashboard.index');
     }

@@ -3,10 +3,9 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Repositories\CategoryRepository;
-use App\Models\Category;
 use App\Http\Requests\Admin\Category\StoreRequest;
 use App\Http\Requests\Admin\Category\EditRequest;
-use Illuminate\Http\Request;
+use App\Http\Requests\Admin\Category\DeleteRequest;
 use Illuminate\View\View;
 use Illuminate\Http\RedirectResponse;
 use Exception;

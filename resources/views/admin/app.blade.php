@@ -167,7 +167,7 @@
                     </div>
                 </div>
 
-                @include('notifications')
+                @include('admin.notifications')
 
             </div><!-- /.container-fluid -->
         </section>
