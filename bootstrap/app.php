@@ -9,9 +9,16 @@ return Application::configure(basePath: dirname(__DIR__))
         web: __DIR__.'/../routes/web.php',
         commands: __DIR__.'/../routes/console.php',
         health: '/up',
+        then: function () {
+            Route::middleware('web')
+                ->prefix('cp')
+                ->group(base_path('routes/cp.php'));
+        }
     )
     ->withMiddleware(function (Middleware $middleware): void {
-        //
+        $middleware->alias([
+            'permission' => \App\Http\Middleware\Permission::class,
+        ]);
     })
     ->withExceptions(function (Exceptions $exceptions): void {
         //
