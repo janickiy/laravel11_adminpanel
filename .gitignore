@@ -3,7 +3,7 @@
 /public/build
 /public/hot
 /public/storage
-/storage/*.key
+/storage
 /vendor
 .env
 .env.backup
@@ -21,3 +21,4 @@ yarn-error.log
 /docker/redis/
 /docker/pg_data/
 /docker/mysql_data/
+/storage/

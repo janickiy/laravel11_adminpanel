@@ -1,10 +1,10 @@
 <p align="center">
-    <h1 align="center">Laravel 12 adminpanel-api</h1>
+    <h1 align="center">Laravel 13 adminpanel</h1>
 </p>
 
 # Модули проекта
 - Docker
-- php:8.4-fpm
+- php:8.3-fpm
 - nginx:alpine
 - mysql
 - PostgreSQL
@@ -33,17 +33,9 @@ docker-compose up -d --build
 # Установка
 
 1. `composer install`
-2. `php artisan migrate`
-3. `php artisan db:seed`
-4. `php artisan key:generate`
-5. `php artisan jwt:secret`
-
-
-документация доступна
-
-http://localhost:8080/api/documentation
-
-После выполнить команду docker-compose down && docker-compose up -d
+2. `php artisan key:generate`
+3. `php artisan migrate`
+4. `php artisan db:seed`
 
 # Панель администратора
 

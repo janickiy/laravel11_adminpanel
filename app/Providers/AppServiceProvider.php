@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+
 use App\Helpers\PermissionsHelper;
 use Illuminate\Support\ServiceProvider;
 
