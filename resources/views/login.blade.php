@@ -37,7 +37,7 @@
 
 
                 <div class="input-group mb-3">
-                    <input type="text" name="login"  class="form-control" placeholder="Email">
+                    <input type="text" name="login"  class="form-control" placeholder="Логин">
                     <div class="input-group-append">
                         <div class="input-group-text">
                             <span class="fas fa-envelope"></span>
