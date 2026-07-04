@@ -2,19 +2,25 @@
 
 namespace Tests\Feature;
 
-// use Illuminate\Foundation\Testing\RefreshDatabase;
+use App\Models\Catalog;
+use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;
 
 class ExampleTest extends TestCase
 {
+    use RefreshDatabase;
+
     /**
      * A basic test example.
      */
-    public function test_the_application_returns_a_successful_response(): void
+    public function test_the_homepage_displays_catalog_list(): void
     {
-        $response = $this->get('/');
+        Catalog::create(['name' => 'Тестовая категория']);
 
-        $response->assertRedirect('/cp');
+        $this->get('/')
+            ->assertOk()
+            ->assertSee('Каталог')
+            ->assertSee('Тестовая категория');
     }
 
     public function test_admin_routes_are_available_under_cp_prefix(): void

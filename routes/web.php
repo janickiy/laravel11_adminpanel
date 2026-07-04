@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\FrontController;
 use Illuminate\Support\Facades\Route;
 
-Route::redirect('/', '/cp');
+Route::get('/', [FrontController::class, 'index'])->name('front.index');
