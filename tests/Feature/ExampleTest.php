@@ -16,4 +16,11 @@ class ExampleTest extends TestCase
 
         $response->assertRedirect('/cp');
     }
+
+    public function test_admin_routes_are_available_under_cp_prefix(): void
+    {
+        $this->get('/cp/login')->assertOk();
+        $this->get('/cp/notes')->assertRedirect(route('login'));
+        $this->get('/notes')->assertNotFound();
+    }
 }

@@ -112,7 +112,7 @@
                          with font-awesome or any other icon font library -->
 
                     <li class="nav-item">
-                        <a href="{{ route('admin.dashboard.index') }}" class="nav-link{{ Request::is('dashboard*') ? ' active' : '' }}"
+                        <a href="{{ route('admin.dashboard.index') }}" class="nav-link{{ Request::is('cp') ? ' active' : '' }}"
                            title="dashboard">
                             <i class="nav-icon fas fa-envelope"></i>
                             <p>dashboard</p>
@@ -122,7 +122,7 @@
                     @if(PermissionsHelper::has_permission('admin|moderator'))
 
                         <li class="nav-item">
-                            <a href="{{ route('admin.notes.index') }}" class="nav-link{{ Request::is('notes*') ? ' active' : '' }}"
+                            <a href="{{ route('admin.notes.index') }}" class="nav-link{{ Request::is('cp/notes*') ? ' active' : '' }}"
                                title="заметки">
                                 <i class="nav-icon fas fa-list"></i>
                                 <p>заметки</p>
@@ -132,7 +132,7 @@
                     @endif
 
                     <li class="nav-item">
-                        <a href="{{ route('admin.catalog.index') }}" class="nav-link{{ Request::is('catalog*') ? ' active' : '' }}"
+                        <a href="{{ route('admin.catalog.index') }}" class="nav-link{{ Request::is('cp/catalog*') ? ' active' : '' }}"
                            title="Каталог">
                             <i class="nav-icon fas fa-list"></i>
                             <p>каталог</p>
@@ -142,7 +142,7 @@
                     @if(PermissionsHelper::has_permission('admin'))
 
                         <li class="nav-item">
-                            <a href="{{ route('admin.admin.index') }}" class="nav-link{{ Request::is('admin*') ? ' active' : '' }}"
+                            <a href="{{ route('admin.admin.index') }}" class="nav-link{{ Request::is('cp/admin*') ? ' active' : '' }}"
                                title="пользователи">
                                 <i class="nav-icon fas fa-users"></i>
                                 <p>пользователи</p>
